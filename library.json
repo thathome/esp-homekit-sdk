@@ -1,0 +1,14 @@
+{
+  "name": "esp-homekit-sdk",
+  "keywords": "homekit",
+  "description": "",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/rednblkx/esp-homekit-sdk.git"
+  },
+  "frameworks": "espidf",
+  "platforms": "espressif32",
+  "examples": {},
+  "exclude": "examples"
+}
