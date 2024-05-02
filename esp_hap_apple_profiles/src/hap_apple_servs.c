@@ -67,10 +67,12 @@ hap_serv_t *hap_serv_accessory_information_create(hap_acc_cfg_t *cfg)
         }
     }
     else {
-        hap_tlv8_val_t val;
-        val.buf = (uint8_t *)"AQQAAAAA";
-        val.buflen = 9;
-        if (hap_serv_add_char(hs, hap_char_hardware_finish_create(&val)) != HAP_SUCCESS) {
+        uint8_t buf[6] = { 0x01, 0x04, 0x0, 0x0, 0x0, 0x0 };
+        hap_tlv8_val_t hw_finish = {
+        .buf = buf,
+        .buflen = 6
+        };
+        if (hap_serv_add_char(hs, hap_char_hardware_finish_create(&hw_finish)) != HAP_SUCCESS) {
             goto err;
         }
     }
@@ -174,21 +176,11 @@ hap_serv_t *hap_serv_nfc_access_create(uint16_t *confState, hap_tlv8_val_t *nfc_
     if (hap_serv_add_char(hs, hap_char_configuration_state_create(confState)) != HAP_SUCCESS) {
         goto err;
     }
-    if (hap_serv_add_char(hs, hap_char_nfc_access_control_point_create(nfc_access_control_point)) != HAP_SUCCESS) {
-        hap_tlv8_val_t val;
-        val.buf = (uint8_t *)"";
-        val.buflen = 1;
-        if (hap_serv_add_char(hs, hap_char_nfc_access_control_point_create(&val)) != HAP_SUCCESS) {
-            goto err;
-        }
+    if (hap_serv_add_char(hs, hap_char_nfc_access_control_point_create(&nfc_access_control_point)) != HAP_SUCCESS) {
+        goto err;
     }
-    if (hap_serv_add_char(hs, hap_char_nfc_access_supported_conf_create(nfc_access_supported_conf)) != HAP_SUCCESS) {
-        hap_tlv8_val_t val;
-        val.buf = (uint8_t *)"AQEQAgEQ";
-        val.buflen = 9;
-        if (hap_serv_add_char(hs, hap_char_nfc_access_supported_conf_create(&val)) != HAP_SUCCESS) {
-            goto err;
-        }
+    if (hap_serv_add_char(hs, hap_char_nfc_access_supported_conf_create(&nfc_access_supported_conf)) != HAP_SUCCESS) {
+        goto err;
     }
     return hs;
 err:
