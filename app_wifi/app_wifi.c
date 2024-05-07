@@ -316,7 +316,7 @@ esp_err_t app_wifi_start(TickType_t ticks_to_wait)
          * wifi_prov_scheme_softap or wifi_prov_scheme_ble */
 #ifdef CONFIG_APP_WIFI_PROV_TRANSPORT_BLE
         .scheme = wifi_prov_scheme_ble,
-#else /* CONFIG_APP_WIFI_PROV_TRANSPORT_SOFTAP */
+#else CONFIG_APP_WIFI_PROV_TRANSPORT_SOFTAP
         .scheme = wifi_prov_scheme_softap,
 #endif /* CONFIG_APP_WIFI_PROV_TRANSPORT_BLE */
 
@@ -330,7 +330,7 @@ esp_err_t app_wifi_start(TickType_t ticks_to_wait)
          * WIFI_PROV_EVENT_HANDLER_NONE when using wifi_prov_scheme_softap*/
 #ifdef CONFIG_APP_WIFI_PROV_TRANSPORT_BLE
         .scheme_event_handler = WIFI_PROV_SCHEME_BLE_EVENT_HANDLER_FREE_BTDM
-#else /* CONFIG_APP_WIFI_PROV_TRANSPORT_SOFTAP */
+#else CONFIG_APP_WIFI_PROV_TRANSPORT_SOFTAP
         .scheme_event_handler = WIFI_PROV_EVENT_HANDLER_NONE,
 #endif /* CONFIG_APP_WIFI_PROV_TRANSPORT_BLE */
     };
