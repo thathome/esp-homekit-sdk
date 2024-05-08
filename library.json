@@ -10,5 +10,20 @@
   "frameworks": "espidf",
   "platforms": "espressif32",
   "examples": {},
-  "exclude": "examples"
+  "build": {
+    "libLDFMode": "deep",
+    "srcDir": ".",
+    "srcFilter": ["+<**/*.c>", "+<**/*.h>", "-<examples>", "-<tools>"],
+    "flags": [
+      "-I app_hap_setup_payload",
+      "-I app_wifi",
+      "-I button/button/include",
+      "-I esp_hap_apple_profiles",
+      "-I esp_hap_core/include",
+      "-I esp_hap_core/src/priv_includes",
+      "-I esp_hap_extras/include",
+      "-I esp_hap_platform/include",
+      "-DMFI_VER=\\\"4.0-2cdac90\\\""
+    ]
+  }
 }
