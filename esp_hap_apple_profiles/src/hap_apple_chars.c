@@ -1451,7 +1451,7 @@ hap_char_t *hap_char_nfc_access_supported_conf_create(hap_tlv8_val_t *nfc_access
 }
 
 /* Char: Configuration State */
-hap_char_t *hap_char_configuration_state_create(uint16_t *configuration_state)
+hap_char_t *hap_char_configuration_state_create(uint16_t configuration_state)
 {
     hap_char_t *hc = hap_char_uint16_create(HAP_CHAR_UUID_CONFIGURATION_STATE,
                                            HAP_CHAR_PERM_PR | HAP_CHAR_PERM_EV , configuration_state);

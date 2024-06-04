@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <esp_idf_version.h>
 #include <inttypes.h>
+#include <esp_log.h>
 
 #ifdef __cplusplus
 extern "C"{
@@ -54,9 +55,9 @@ extern "C"{
 #endif /* CONFIG_ESP_MFI_ASSERT_BLOCK */
 
 /* debug level with different color */
-#define ESP_MFI_DEBUG_INFO      1
+#define ESP_MFI_DEBUG_ERR       1
 #define ESP_MFI_DEBUG_WARN      2
-#define ESP_MFI_DEBUG_ERR       3
+#define ESP_MFI_DEBUG_INFO      3
 #define ESP_MFI_DEBUG_ASSERT    4
 #define ESP_MFI_DEBUG_BLOCK     5
 
@@ -104,7 +105,7 @@ uint32_t esp_mfi_get_debug_level(uint32_t level, uint32_t *color);
     {                                                                                       \
         uint32_t __color_LINE;                                                              \
         if (l > esp_mfi_get_debug_level(l, &__color_LINE)) {                                \
-            printf("\e[1;%" PRId32 "m" fmt "\e[0m" ESP_MFI_DEBUG_FL,                         \
+            ESP_LOG_LEVEL(l, "HAP", "\e[1;%" PRId32 "m" fmt "\e[0m" ESP_MFI_DEBUG_FL,                         \
                                 __color_LINE,  ##__VA_ARGS__);                              \
         }                                                                                   \
     }

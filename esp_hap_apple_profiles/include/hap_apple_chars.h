@@ -1405,7 +1405,7 @@ hap_char_t *hap_char_nfc_access_supported_conf_create(hap_tlv8_val_t *nfc_access
  * @return Pointer to the characteristic object on success
  * @return NULL on failure
  */
-hap_char_t *hap_char_configuration_state_create(uint16_t *configuration_state);
+hap_char_t *hap_char_configuration_state_create(uint16_t configuration_state);
 
 /** Lock Last Known Action Characteristic
  *

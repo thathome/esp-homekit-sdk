@@ -164,7 +164,7 @@ hap_serv_t *hap_serv_lock_management_create(hap_tlv8_val_t *lock_control_point, 
  * @return Pointer to the service object on success
  * @return NULL on failure
  */
-hap_serv_t *hap_serv_nfc_access_create(uint16_t *confState, hap_tlv8_val_t *nfc_access_control_point, hap_tlv8_val_t *nfc_access_supported_conf);
+hap_serv_t *hap_serv_nfc_access_create(uint16_t confState, hap_tlv8_val_t *nfc_access_control_point, hap_tlv8_val_t *nfc_access_supported_conf);
 
 /** Create Lock Mechanism Service
  *
