@@ -271,14 +271,15 @@ typedef struct {
 /** HomeKit Debug prints level
  */
 typedef enum {
-    /** Basic information indicating what's happening in the HomeKit core */
-    HAP_DEBUG_LEVEL_INFO = 0,
+    /** Errors which will affect the working, and may even halt the process */
+    HAP_DEBUG_LEVEL_ERR = 0,
     /** Warnings for incidents that can affect behavior, but not necessarily cause a failure*/
     HAP_DEBUG_LEVEL_WARN,
-    /** Errors which will affect the working, and may even halt the process */
-    HAP_DEBUG_LEVEL_ERR,
+    /** Basic information indicating what's happening in the HomeKit core */
+    HAP_DEBUG_LEVEL_INFO,
     /** Asserts for failures which will definitely cause system to halt */
-    HAP_DEBUG_LEVEL_ASSERT
+    HAP_DEBUG_LEVEL_ASSERT,
+    HAP_DEBUG_LEVEL_BLOCK
 } hap_debug_level_t;
 
 /**
