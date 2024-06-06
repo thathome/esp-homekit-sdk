@@ -272,7 +272,7 @@ typedef struct {
  */
 typedef enum {
     /** Errors which will affect the working, and may even halt the process */
-    HAP_DEBUG_LEVEL_ERR = 0,
+    HAP_DEBUG_LEVEL_ERR = 1,
     /** Warnings for incidents that can affect behavior, but not necessarily cause a failure*/
     HAP_DEBUG_LEVEL_WARN,
     /** Basic information indicating what's happening in the HomeKit core */

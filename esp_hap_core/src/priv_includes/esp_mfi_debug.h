@@ -36,18 +36,18 @@ extern "C"{
 #endif
 
 #define ESP_MFI_DEBUG_FL "\n"
-// #define CONFIG_ESP_MFI_DEBUG_ENABLE
+#define CONFIG_ESP_MFI_DEBUG_ENABLE
 #ifdef CONFIG_ESP_MFI_DEBUG_ENABLE
 #define ESP_MFI_DEBUG_ENABLE
 #endif /* CONFIG_ESP_MFI_DEBUG_ENABLE */
 
-// #define CONFIG_ESP_MFI_ASSERT
+#define CONFIG_ESP_MFI_ASSERT
 #ifdef CONFIG_ESP_MFI_ASSERT
 #define ESP_MFI_ASSERT_ENABLE
 #endif /* CONFIG_ESP_MFI_ASSERT */
 
-// #define CONFIG_MFI_DEBUG_LEVEL_INIT 0
-// #define CONFIG_ESP_MFI_ASSERT_BLOCK
+#define CONFIG_MFI_DEBUG_LEVEL_INIT 0
+#define CONFIG_ESP_MFI_ASSERT_BLOCK
 #ifdef CONFIG_ESP_MFI_ASSERT_BLOCK
 #define ESP_MFI_ASSERT_BLOCK()  while (1)
 #else /* CONFIG_ESP_MFI_ASSERT_BLOCK */
@@ -104,7 +104,7 @@ uint32_t esp_mfi_get_debug_level(uint32_t level, uint32_t *color);
 #define ESP_MFI_DEBUG(l, fmt, ...)                                                          \
     {                                                                                       \
         uint32_t __color_LINE;                                                              \
-        if (l > esp_mfi_get_debug_level(l, &__color_LINE)) {                                \
+        if (l >= esp_mfi_get_debug_level(l, &__color_LINE)) {                                \
             ESP_LOG_LEVEL(l, "HAP", "\e[1;%" PRId32 "m" fmt "\e[0m" ESP_MFI_DEBUG_FL,                         \
                                 __color_LINE,  ##__VA_ARGS__);                              \
         }                                                                                   \
